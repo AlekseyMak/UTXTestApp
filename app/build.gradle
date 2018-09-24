@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -12,7 +11,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.onSignInSuccessful.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -20,6 +19,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+kapt {
+    generateStubs = true
 }
 
 dependencies {
@@ -36,6 +39,16 @@ dependencies {
     implementation applicationDependencies.archComponents
     implementation applicationDependencies.constraintLayout
     implementation applicationDependencies.dagger
+    kapt applicationDependencies.daggerCompiler
+    implementation applicationDependencies.moxy
+    implementation applicationDependencies.moxyAppCompat
+    kapt applicationDependencies.moxyCompiler
+    implementation applicationDependencies.room
+    implementation applicationDependencies.roomRxJava
+    kapt applicationDependencies.roomCompiler
+    implementation applicationDependencies.rxJava
+    implementation applicationDependencies.rxAndroid
+    implementation applicationDependencies.rxKotlin
 
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     testImplementation 'junit:junit:4.12'

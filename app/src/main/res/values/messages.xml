@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="message_ok">OK</string>
+    <string name="message_sign_in_successful">SignIn successful</string>
+    <string name="message_invalid_credentials">Invalid credentials</string>
+    <string name="message_user_blocked">User is blocked</string>
+</resources>
